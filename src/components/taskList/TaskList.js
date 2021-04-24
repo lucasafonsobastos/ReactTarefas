@@ -1,6 +1,6 @@
 import React from "react";
 import "./tasklist.css";
-import PropTypes, { array } from "prop-types";
+import PropTypes from "prop-types";
 
 export default function TaskList({ title, onAddTask, tasks }) {
   const addTask = () => {
@@ -11,11 +11,7 @@ export default function TaskList({ title, onAddTask, tasks }) {
   return (
     <div className="tasklist">
       <div className="title">{title}</div>
-      <div className="content">
-        {tasks.map((task) => {
-          return <div key={task.id}>{task.title}</div>;
-        })}
-      </div>
+      <div className="content"></div>
       <button onClick={addTask}>Adicionar Tarefa</button>
     </div>
   );
