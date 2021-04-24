@@ -11,7 +11,11 @@ export default function TaskList({ title, onAddTask, tasks }) {
   return (
     <div className="tasklist">
       <div className="title">{title}</div>
-      <div className="content"></div>
+      <div className="content">
+        {tasks.map((task) => {
+          return <div key={task.id}>{task.title}</div>;
+        })}
+      </div>
       <button onClick={addTask}>Adicionar Tarefa</button>
     </div>
   );

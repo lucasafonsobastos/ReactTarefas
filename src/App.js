@@ -29,8 +29,6 @@ export default function App() {
       <NavBar />
       <div className="container">
         <TaskList title="Pendente" onAddTask={addTask} tasks={tasks} />
-        <TaskList title="Fazendo" />
-        <TaskList title="Completo" />
       </div>
     </div>
   );
