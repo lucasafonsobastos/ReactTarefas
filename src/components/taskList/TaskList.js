@@ -9,7 +9,8 @@ export default function TaskList({
   taskState,
   onAddTask,
   tasks,
-  onTaskUpdate
+  onTaskUpdate,
+  onDeleteTask
 }) {
   const addTask = () => {
     //console.log("chamada dentro do task");
@@ -19,7 +20,6 @@ export default function TaskList({
   return (
     <div className="tasklist">
       <div className="title">{title}</div>
-      <button onClick={addTask}>Adicionar Tarefa</button>
       <div className="content">
         {tasks.map((task) => {
           return (
@@ -29,9 +29,11 @@ export default function TaskList({
               title={task.title}
               taskState={task.state}
               onTaskUpdate={onTaskUpdate}
+              onDeleteTask={onDeleteTask}
             />
           );
         })}
+        <button onClick={addTask}>Adicionar Tarefa</button>
       </div>
     </div>
   );
@@ -40,5 +42,7 @@ export default function TaskList({
 TaskList.prototype = {
   title: PropTypes.string.isRequired,
   onAddTask: PropTypes.func.isRequired,
-  tasks: PropTypes.array.isRequired
+  tasks: PropTypes.array.isRequired,
+  onTaskUpdate: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired
 };
