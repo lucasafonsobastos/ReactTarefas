@@ -34,6 +34,7 @@ export default function TaskItem({
   if (isEditing) {
     return (
       <input
+        className="task-item"
         type="text"
         value={editableTitle}
         onChange={onTitleChange}
