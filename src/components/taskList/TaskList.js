@@ -2,21 +2,37 @@ import React from "react";
 import "./tasklist.css";
 import PropTypes from "prop-types";
 
-export default function TaskList({ title, onAddTask, tasks }) {
+import TaskItem from "../taskItem/TaskItem";
+
+export default function TaskList({
+  title,
+  taskState,
+  onAddTask,
+  tasks,
+  onTaskUpdate
+}) {
   const addTask = () => {
     //console.log("chamada dentro do task");
-    onAddTask("Nova Tarefa", "Pendente");
+    onAddTask("Nova Tarefa", taskState);
   };
 
   return (
     <div className="tasklist">
       <div className="title">{title}</div>
+      <button onClick={addTask}>Adicionar Tarefa</button>
       <div className="content">
         {tasks.map((task) => {
-          return <div key={task.id}>{task.title}</div>;
+          return (
+            <TaskItem
+              key={task.id}
+              id={task.id}
+              title={task.title}
+              taskState={task.state}
+              onTaskUpdate={onTaskUpdate}
+            />
+          );
         })}
       </div>
-      <button onClick={addTask}>Adicionar Tarefa</button>
     </div>
   );
 }
