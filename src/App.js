@@ -25,7 +25,7 @@ export default function App() {
   };
 
   const updateTask = (id, title, state) => {
-    setTasks((existingTasks) => {
+    setTasks((existigit ngTasks) => {
       return existingTasks.map((task) => {
         if (task.id === id) {
           return { ...task, title, state };
